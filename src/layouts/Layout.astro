@@ -1,0 +1,38 @@
+---
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = 'BCA Upper Cafe • Study Hall & Absence Tracker',
+  description = 'BCA Upper Cafe is the modern attendance, check-in, and teacher absence platform for Bergen County Academies students.',
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="en" class="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <meta name="description" content={description} />
+    <title>{title}</title>
+  </head>
+  <body class="bg-[#0B0E14] text-[#F0F6FC] antialiased min-h-screen selection:bg-[#C5B358] selection:text-[#0B0E14]">
+    <div class="max-w-[84ch] mx-auto px-4 py-8 md:py-14">
+      <slot />
+    </div>
+  </body>
+</html>
+
+<style is:global>
+  @keyframes pulseGlow {
+    0%, 100% { opacity: 0.4; }
+    50% { opacity: 0.8; }
+  }
+  .gold-glow {
+    animation: pulseGlow 4s ease-in-out infinite;
+  }
+</style>

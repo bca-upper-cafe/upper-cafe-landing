@@ -1,0 +1,246 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Upper Cafe • Bergen County Academies">
+  <!-- Centered Branding Header inspired by mybca.link -->
+  <header class="w-full text-center flex flex-col items-center justify-center pt-2 pb-6">
+    <a href="/" class="group flex items-center justify-center mb-4">
+      <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-[#C5B358] via-[#A89642] to-[#7A6B25] p-0.5 shadow-xl shadow-[#C5B358]/15 group-hover:scale-105 transition-transform duration-200">
+        <div class="w-full h-full bg-[#0B0E14] rounded-[14px] flex items-center justify-center">
+          <svg class="w-8 h-8 text-[#C5B358]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M18 8h1a4 4 0 0 1 0 8h-1"></path>
+            <path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"></path>
+            <line x1="6" y1="1" x2="6" y2="4"></line>
+            <line x1="10" y1="1" x2="10" y2="4"></line>
+            <line x1="14" y1="1" x2="14" y2="4"></line>
+          </svg>
+        </div>
+      </div>
+    </a>
+
+    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#151B23] border border-[#C5B358]/30 mb-3">
+      <span class="w-2 h-2 rounded-full bg-[#C5B358] animate-pulse"></span>
+      <span class="text-xs font-black uppercase tracking-wider text-[#C5B358]">Bergen County Academies</span>
+    </div>
+
+    <!-- Serif headline inspired by mybca.link -->
+    <h1 class="text-3xl sm:text-4xl md:text-5xl font-serif text-[#F0F6FC] leading-tight max-w-2xl">
+      <span class="font-bold italic text-transparent bg-clip-text bg-gradient-to-r from-[#C5B358] via-[#E5D68A] to-[#C5B358]">Upper Cafe</span>
+      is the modern study hall & absence tracker
+    </h1>
+    <p class="text-sm md:text-base text-[#8B949E] mt-3 max-w-xl font-sans">
+      Say goodbye to paper check-in clipboards and disorganized Google Docs. Fast, seamless study hall passes for all BCA students.
+    </p>
+  </header>
+
+  <!-- Bento Grid matching mybca.link structure -->
+  <main class="mt-6">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+      
+      <!-- Card 1: Web App (app.bcaupper.cafe) -->
+      <a
+        href="http://localhost:3000"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="group relative block bg-[#151B23] hover:bg-[#1A222D] border border-[#262F3D] hover:border-[#C5B358]/50 rounded-2xl p-6 transition-all duration-200 flex flex-col justify-between overflow-hidden shadow-lg md:row-span-2"
+      >
+        <div class="relative z-10">
+          <div class="flex items-center justify-between mb-3">
+            <span class="text-xs font-black uppercase tracking-wider px-2.5 py-1 rounded-md bg-[#C5B358]/15 text-[#E5D68A] border border-[#C5B358]/30">
+              Web App • app.bcaupper.cafe
+            </span>
+            <div class="w-8 h-8 rounded-full bg-[#0B0E14] flex items-center justify-center text-[#8B949E] group-hover:text-[#C5B358] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all">
+              <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
+              </svg>
+            </div>
+          </div>
+
+          <h2 class="font-serif text-2xl md:text-3xl font-bold text-[#F0F6FC] tracking-tight">
+            Check In & Out
+          </h2>
+          <p class="text-xs md:text-sm text-[#8B949E] mt-1.5 leading-relaxed font-sans">
+            Fast, gamified Duolingo-style check-in from your laptop, tablet, or phone browser. Admin console with Google Doc importer.
+          </p>
+
+          <!-- Interactive UI Preview mockup (Duolingo style) -->
+          <div class="mt-6 space-y-2.5 p-4 rounded-xl bg-[#0B0E14]/80 border border-[#262F3D]">
+            <div class="flex items-center justify-between text-[11px] font-bold text-[#8B949E]">
+              <span>SELECT REASON</span>
+              <span class="text-[#C5B358]">DUOLINGO FLOW</span>
+            </div>
+
+            <!-- Mini Card 1 -->
+            <div class="p-2.5 rounded-lg bg-[#151B23] border border-[#C5B358] flex items-center justify-between">
+              <div class="flex items-center gap-2">
+                <div class="w-6 h-6 rounded bg-[#C5B358] text-[#0B0E14] flex items-center justify-center font-black text-xs">✓</div>
+                <div>
+                  <div class="text-xs font-extrabold text-[#F0F6FC]">Scheduled Study Hall</div>
+                  <div class="text-[10px] text-[#8B949E]">Upper Cafe on Genesis</div>
+                </div>
+              </div>
+              <span class="text-[10px] font-bold text-[#E5D68A]">Regular</span>
+            </div>
+
+            <!-- Mini Card 2 -->
+            <div class="p-2.5 rounded-lg bg-[#12171F] border border-[#262F3D] flex items-center justify-between">
+              <div class="flex items-center gap-2">
+                <div class="w-6 h-6 rounded bg-[#1F2631] text-[#8B949E] flex items-center justify-center font-black text-xs">•</div>
+                <div>
+                  <div class="text-xs font-extrabold text-[#8B949E]">My Teacher is Absent</div>
+                  <div class="text-[10px] text-[#8B949E]/70">Class covered in Upper Cafe</div>
+                </div>
+              </div>
+              <span class="text-[10px] font-bold text-[#8B949E]">Coverage</span>
+            </div>
+
+            <!-- Mini Duolingo 3D Button -->
+            <div class="mt-3 pt-1">
+              <div class="w-full py-2 rounded-xl text-center font-bold text-xs bg-[#C5B358] text-[#0B0E14] border-b-[3px] border-[#7A6B25] shadow-sm">
+                Get Upper Cafe Pass →
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="mt-6 pt-4 border-t border-[#262F3D]/60 flex items-center justify-between text-xs text-[#8B949E]">
+          <span>Works on any laptop or phone</span>
+          <span class="font-bold text-[#C5B358] group-hover:underline">Open Web App</span>
+        </div>
+      </a>
+
+      <!-- Card 2: Mobile App (iOS / Android) -->
+      <div class="bg-[#151B23] border border-[#262F3D] rounded-2xl p-6 flex flex-col justify-between shadow-lg">
+        <div>
+          <div class="flex items-center justify-between mb-3">
+            <span class="text-xs font-black uppercase tracking-wider px-2.5 py-1 rounded-md bg-[#1F2631] text-[#C5B358] border border-[#C5B358]/30">
+              Mobile App • iOS & Android
+            </span>
+            <span class="text-xs font-bold text-[#8B949E]">Read-Only</span>
+          </div>
+
+          <h2 class="font-serif text-2xl font-bold text-[#F0F6FC] tracking-tight">
+            Teacher Absence Board
+          </h2>
+          <p class="text-xs md:text-sm text-[#8B949E] mt-1 leading-relaxed font-sans">
+            Apple & Notion-styled mobile interface to instantly check which teachers are absent each period.
+          </p>
+
+          <!-- Notion / Apple Mockup preview -->
+          <div class="mt-4 p-3 rounded-xl bg-[#0B0E14]/80 border border-[#262F3D] space-y-2">
+            <div class="flex items-center gap-1.5 overflow-x-hidden">
+              <span class="px-2 py-0.5 rounded-md text-[10px] font-bold bg-[#C5B358] text-[#0B0E14]">All Periods</span>
+              <span class="px-2 py-0.5 rounded-md text-[10px] font-bold bg-[#151B23] text-[#8B949E]">P1</span>
+              <span class="px-2 py-0.5 rounded-md text-[10px] font-bold bg-[#151B23] text-[#8B949E]">P2</span>
+              <span class="px-2 py-0.5 rounded-md text-[10px] font-bold bg-[#151B23] text-[#8B949E]">P3</span>
+              <span class="px-2 py-0.5 rounded-md text-[10px] font-bold bg-[#151B23] text-[#8B949E]">P4</span>
+            </div>
+
+            <div class="p-2 rounded-lg bg-[#151B23] border border-[#262F3D] text-[11px] flex justify-between items-center">
+              <div>
+                <span class="font-bold text-[#F0F6FC]">Dr. DeFalco</span>
+                <span class="text-[10px] text-[#8B949E] block">Physics • Room 234</span>
+              </div>
+              <span class="px-1.5 py-0.5 rounded bg-[#1F2631] text-[#E5D68A] text-[10px] font-bold border border-[#C5B358]/20">P2, P3, P7</span>
+            </div>
+
+            <div class="p-2 rounded-lg bg-[#151B23] border border-[#262F3D] text-[11px] flex justify-between items-center">
+              <div>
+                <span class="font-bold text-[#F0F6FC]">Ms. Respass</span>
+                <span class="text-[10px] text-[#8B949E] block">Math • Room 118</span>
+              </div>
+              <span class="px-1.5 py-0.5 rounded bg-[#1F2631] text-[#E5D68A] text-[10px] font-bold border border-[#C5B358]/20">P4, P5</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="mt-4 pt-3 border-t border-[#262F3D]/60 flex items-center justify-between text-xs text-[#8B949E]">
+          <span>Built in Expo / React Native</span>
+          <span class="font-bold text-[#C5B358]">upper-cafe-mobile</span>
+        </div>
+      </div>
+
+      <!-- Card 3: Dual Scenario Explainer -->
+      <div class="bg-[#151B23] border border-[#262F3D] rounded-2xl p-6 flex flex-col justify-between shadow-lg">
+        <div>
+          <span class="text-xs font-black uppercase tracking-wider px-2.5 py-1 rounded-md bg-[#1F2631] text-[#C5B358] border border-[#C5B358]/30">
+            How It Works
+          </span>
+
+          <h2 class="font-serif text-xl font-bold text-[#F0F6FC] tracking-tight mt-3">
+            Two Scenarios, Zero Paper
+          </h2>
+          <p class="text-xs text-[#8B949E] mt-1 leading-relaxed font-sans">
+            Whether you have study hall scheduled or your class teacher is absent, Upper Cafe provides instant check-in accountability.
+          </p>
+
+          <div class="mt-4 grid grid-cols-2 gap-2 text-xs">
+            <div class="p-3 rounded-xl bg-[#0B0E14]/80 border border-[#262F3D]">
+              <div class="text-[#C5B358] font-bold text-sm mb-1">1. Default Hall</div>
+              <p class="text-[#8B949E] text-[11px]">Upper Cafe is on your schedule. Tap 1 button to verify attendance.</p>
+            </div>
+            <div class="p-3 rounded-xl bg-[#0B0E14]/80 border border-[#262F3D]">
+              <div class="text-[#E5D68A] font-bold text-sm mb-1">2. Teacher Out</div>
+              <p class="text-[#8B949E] text-[11px]">Select period and absent teacher from live synced roster.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="mt-4 pt-3 border-t border-[#262F3D]/60 text-[11px] text-[#8B949E]">
+          Automatic time tracking with digital checkout pass.
+        </div>
+      </div>
+
+      <!-- Card 4: Dedicated API Service (api.bcaupper.cafe) -->
+      <a
+        href="http://localhost:4000"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="group md:col-span-2 bg-[#151B23] hover:bg-[#1A222D] border border-[#262F3D] hover:border-[#C5B358]/50 rounded-2xl p-5 transition-all flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 shadow-lg"
+      >
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-xl bg-[#1F2631] text-[#C5B358] border border-[#C5B358]/30 flex items-center justify-center font-mono font-bold text-sm shrink-0">
+            API
+          </div>
+          <div>
+            <div class="flex items-center gap-2">
+              <h3 class="font-bold text-sm text-[#F0F6FC]">
+                Dedicated Backend Service
+              </h3>
+              <span class="text-[10px] font-bold text-emerald-400 bg-emerald-950/60 px-2 py-0.5 rounded-full border border-emerald-800">
+                api.bcaupper.cafe
+              </span>
+            </div>
+            <p class="text-xs text-[#8B949E] mt-0.5">
+              High-performance REST API with Google Doc bulk parser, realtime check-in rosters, and absence endpoints.
+            </p>
+          </div>
+        </div>
+
+        <div class="flex items-center gap-1.5 text-xs font-bold text-[#C5B358] shrink-0 group-hover:translate-x-1 transition-transform">
+          <span>Explore Endpoints</span>
+          <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
+          </svg>
+        </div>
+      </a>
+
+    </div>
+  </main>
+
+  <!-- Footer styled after mybca.link -->
+  <footer class="w-full text-[#8B949E] mt-12 md:mt-16 pt-6 border-t border-[#262F3D] text-xs">
+    <div class="flex flex-col sm:flex-row items-center justify-between gap-4">
+      <p>© 2025–2026 Bergen County Academies Upper Cafe</p>
+      
+      <div class="flex flex-wrap items-center justify-center gap-x-4 gap-y-2">
+        <a href="http://localhost:3000" class="hover:text-[#C5B358] transition-colors underline">Web App</a>
+        <a href="http://localhost:4000" class="hover:text-[#C5B358] transition-colors underline">API</a>
+        <a href="https://mybca.link" target="_blank" rel="noopener noreferrer" class="hover:text-[#C5B358] transition-colors underline">myBCA</a>
+        <a href="https://gpa.mybca.link" target="_blank" rel="noopener noreferrer" class="hover:text-[#C5B358] transition-colors underline">GPA Calculator</a>
+        <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="hover:text-[#C5B358] transition-colors underline">GitHub</a>
+      </div>
+    </div>
+  </footer>
+</Layout>

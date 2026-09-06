@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <rect width="100" height="100" rx="24" fill="#0B0E14" />
+  <rect x="2" y="2" width="96" height="96" rx="22" fill="none" stroke="#C5B358" stroke-width="4" />
+  <text x="50" y="66" font-family="-apple-system, sans-serif" font-weight="900" font-size="44" fill="#C5B358" text-anchor="middle">UC</text>
+</svg>
