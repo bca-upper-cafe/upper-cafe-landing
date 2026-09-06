@@ -1,0 +1,48 @@
+---
+import Layout from '../../layouts/Layout.astro';
+const year = new Date().getFullYear();
+const copyright = year === 2026 ? '© 2026 Kabir Sekhon' : `© 2026-${year} Kabir Sekhon`;
+---
+<Layout title="Privacy Policy — Upper Cafe">
+  <style>
+    h1 { font-size: 1.8rem; font-weight: normal; margin-bottom: 0.4rem; }
+    .subtitle { font-size: 0.82rem; color: #888; font-family: -apple-system, BlinkMacSystemFont, sans-serif; margin-bottom: 2.5rem; }
+    h2 { font-size: 1.05rem; font-family: -apple-system, BlinkMacSystemFont, sans-serif; font-weight: 700; margin: 2rem 0 0.5rem; }
+    p { font-size: 0.9rem; color: #444; margin-bottom: 1rem; }
+    ul { font-size: 0.9rem; color: #444; margin: 0 0 1rem 1.5rem; }
+    li { margin-bottom: 0.3rem; }
+    a { color: #8B6914; }
+  </style>
+
+  <h1>Privacy Policy</h1>
+  <p class="subtitle">Last updated September 2026 &nbsp;·&nbsp; {copyright}</p>
+
+  <p>We take your privacy seriously. This policy explains what we collect, why, and what we do with it.</p>
+
+  <h2>What we collect</h2>
+  <p>When you check in to Upper Cafe, we store:</p>
+  <ul>
+    <li>Your name</li>
+    <li>Your BCA email address (optional)</li>
+    <li>Your student ID number (optional)</li>
+    <li>Your academy and grade</li>
+    <li>The period you checked in for</li>
+    <li>Your check-in reason (scheduled study hall or teacher absence)</li>
+    <li>The time you checked in and out</li>
+  </ul>
+
+  <h2>What we don't collect</h2>
+  <p>We do not collect passwords, financial information, device data, location data, or any information beyond what you type into the check-in form.</p>
+
+  <h2>How we use it</h2>
+  <p>The data is used exclusively by Upper Cafe monitors and BCA staff to maintain an accurate attendance roster. It is not shared with third parties, used for advertising, or processed for any purpose beyond attendance tracking.</p>
+
+  <h2>Storage</h2>
+  <p>Data is stored in-memory on the API server and resets periodically. We do not maintain permanent records beyond the current school day.</p>
+
+  <h2>Your rights</h2>
+  <p>If you want your check-in record removed, email <a href="mailto:kabsek30@bergen.org">kabsek30@bergen.org</a> and we'll take care of it.</p>
+
+  <h2>Contact</h2>
+  <p>Questions about privacy? <a href="mailto:kabsek30@bergen.org">kabsek30@bergen.org</a></p>
+</Layout>

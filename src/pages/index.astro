@@ -1,110 +1,173 @@
 ---
 import Layout from '../layouts/Layout.astro';
-
-const currentYear = new Date().getFullYear();
-const copyright = currentYear === 2026 ? '© 2026 Kabir Sekhon' : `© 2026-${currentYear} Kabir Sekhon`;
 ---
+<Layout title="Upper Cafe — Bergen County Academies">
+  <style>
+    h1 {
+      font-size: clamp(2rem, 5vw, 2.8rem);
+      font-weight: normal;
+      line-height: 1.25;
+      letter-spacing: -0.02em;
+      margin-bottom: 1.25rem;
+    }
 
-<Layout title="Upper Cafe • Bergen County Academies">
+    h1 em {
+      font-style: italic;
+      color: #8B6914;
+    }
 
-  <!-- Top nav bar -->
-  <header class="flex items-center justify-between mb-12 pb-5 border-b border-slate-200">
-    <div>
-      <span class="text-base font-bold text-slate-900 tracking-tight">Upper Cafe</span>
-      <span class="ml-2 px-1.5 py-0.5 text-[10px] font-bold bg-amber-100 text-amber-900 border border-amber-300 rounded align-middle">BCA</span>
-    </div>
-    <a
-      href="http://app.bcaupper.cafe"
-      class="text-xs font-semibold bg-slate-900 hover:bg-slate-700 text-white px-3.5 py-2 rounded-lg transition-colors"
-    >
-      Open Web App
-    </a>
-  </header>
+    .intro {
+      font-size: 1.05rem;
+      color: #444;
+      max-width: 520px;
+      margin-bottom: 2.5rem;
+    }
 
-  <!-- Hero -->
-  <main class="space-y-12">
-    <section class="max-w-2xl">
-      <p class="text-xs font-semibold uppercase tracking-widest text-amber-700 mb-3">Bergen County Academies • Study Hall</p>
-      <h1 class="text-4xl sm:text-5xl font-serif font-bold text-slate-900 leading-tight">
-        Check into Upper Cafe.<br />No clipboard. No paper.
-      </h1>
-      <p class="mt-4 text-slate-500 text-base leading-relaxed max-w-xl">
-        Digital attendance for both scheduled study hall students and absent-teacher class coverage. Admins see a live roster and can pull the daily absence list straight from the BCA Google Doc.
-      </p>
-      <div class="mt-6 flex items-center gap-3">
-        <a
-          href="http://app.bcaupper.cafe"
-          class="bg-slate-900 hover:bg-slate-700 text-white text-sm font-semibold px-5 py-2.5 rounded-lg transition-colors"
-        >
-          Student Check-In
-        </a>
-        <a
-          href="http://app.bcaupper.cafe/absences"
-          class="bg-white hover:bg-slate-50 text-slate-700 text-sm font-semibold px-5 py-2.5 rounded-lg border border-slate-200 transition-colors"
-        >
-          View Today's Absences
-        </a>
-      </div>
-    </section>
+    .cta-row {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin-bottom: 3.5rem;
+    }
 
-    <!-- How it works: two columns, clean -->
-    <section class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-      <div class="bg-white border border-slate-200 rounded-xl p-6">
-        <div class="text-xs font-bold uppercase tracking-wider text-slate-400 mb-3">Scenario 1</div>
-        <h2 class="text-lg font-bold text-slate-900 mb-2">Scheduled Study Hall</h2>
-        <p class="text-sm text-slate-500 leading-relaxed">
-          If Upper Cafe is on your Genesis schedule, walk in and check in. Select your period, enter your name and ID, and you're logged.
-        </p>
-      </div>
-      <div class="bg-white border border-slate-200 rounded-xl p-6">
-        <div class="text-xs font-bold uppercase tracking-wider text-slate-400 mb-3">Scenario 2</div>
-        <h2 class="text-lg font-bold text-slate-900 mb-2">Teacher is Absent</h2>
-        <p class="text-sm text-slate-500 leading-relaxed">
-          If your class teacher is absent, pick the period, select the teacher from the daily absence list, and check in. No hunting through Google Docs.
-        </p>
-      </div>
-    </section>
+    .cta-primary {
+      display: inline-block;
+      background: #1a1a1a;
+      color: #FAFAF7;
+      text-decoration: none;
+      padding: 0.55rem 1.25rem;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 600;
+      border-radius: 4px;
+      letter-spacing: 0.01em;
+    }
+    .cta-primary:hover { background: #333; color: #FAFAF7; }
 
-    <!-- Platform cards -->
-    <section class="space-y-3">
-      <h2 class="text-xs font-bold uppercase tracking-wider text-slate-400">Platform</h2>
+    .cta-secondary {
+      display: inline-block;
+      color: #555;
+      text-decoration: none;
+      padding: 0.55rem 1.25rem;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 500;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      background: #fff;
+    }
+    .cta-secondary:hover { border-color: #999; color: #1a1a1a; }
 
-      <a href="http://app.bcaupper.cafe" class="block bg-white border border-slate-200 rounded-xl p-5 hover:border-slate-400 transition-colors group">
-        <div class="flex items-center justify-between">
-          <div>
-            <div class="text-sm font-bold text-slate-900">Web App — app.bcaupper.cafe</div>
-            <div class="text-xs text-slate-500 mt-0.5">Student check-in/out and admin attendance desk with Google Doc import.</div>
-          </div>
-          <span class="text-slate-300 group-hover:text-slate-600 transition-colors text-lg">→</span>
-        </div>
-      </a>
+    hr {
+      border: none;
+      border-top: 1px solid #e0ddd5;
+      margin: 2.5rem 0;
+    }
 
-      <div class="bg-white border border-slate-200 rounded-xl p-5">
-        <div class="flex items-center justify-between">
-          <div>
-            <div class="text-sm font-bold text-slate-900">Mobile App — iOS & Android</div>
-            <div class="text-xs text-slate-500 mt-0.5">View daily teacher absences by period from your phone. Check-in is done on laptops only.</div>
-          </div>
-          <span class="text-[10px] font-semibold text-slate-400 border border-slate-200 px-2 py-0.5 rounded">In Development</span>
-        </div>
-      </div>
+    .section-label {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      font-size: 0.7rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #999;
+      margin-bottom: 1rem;
+    }
 
-      <a href="http://api.bcaupper.cafe" class="block bg-white border border-slate-200 rounded-xl p-5 hover:border-slate-400 transition-colors group">
-        <div class="flex items-center justify-between">
-          <div>
-            <div class="text-sm font-bold text-slate-900">API — api.bcaupper.cafe</div>
-            <div class="text-xs text-slate-500 mt-0.5">REST API for absences, check-ins, live roster stats, and Google Doc parsing.</div>
-          </div>
-          <span class="text-slate-300 group-hover:text-slate-600 transition-colors text-lg">→</span>
-        </div>
-      </a>
-    </section>
-  </main>
+    .scenario-block {
+      margin-bottom: 1.5rem;
+    }
 
-  <!-- Footer -->
-  <footer class="mt-16 pt-6 border-t border-slate-200 flex flex-col sm:flex-row items-center justify-between gap-2 text-xs text-slate-400">
-    <span>{copyright}</span>
-    <span>Bergen County Academies • Hackensack, NJ</span>
-  </footer>
+    .scenario-block h3 {
+      font-size: 1rem;
+      font-weight: 700;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      margin-bottom: 0.3rem;
+    }
 
+    .scenario-block p {
+      font-size: 0.9rem;
+      color: #555;
+      max-width: 480px;
+    }
+
+    .platform-list {
+      list-style: none;
+      margin-top: 0.5rem;
+    }
+
+    .platform-list li {
+      padding: 0.85rem 0;
+      border-bottom: 1px solid #e8e5de;
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 1rem;
+    }
+
+    .platform-list li:last-child { border-bottom: none; }
+
+    .platform-list .p-name {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: #1a1a1a;
+      text-decoration: none;
+    }
+
+    .platform-list .p-name:hover { text-decoration: underline; color: #8B6914; }
+
+    .platform-list .p-desc {
+      font-size: 0.82rem;
+      color: #888;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      text-align: right;
+      max-width: 280px;
+    }
+  </style>
+
+  <h1>Study hall check-in for <em>BCA</em> students, finally done right.</h1>
+
+  <p class="intro">
+    Upper Cafe has always run on paper and a Google Doc that nobody can find.
+    This fixes that — students check in on a laptop, admins see who's there in real time.
+    No clipboards. No hunting through spreadsheets.
+  </p>
+
+  <div class="cta-row">
+    <a href="https://app.bcaupper.cafe" class="cta-primary">Check In Now</a>
+    <a href="https://app.bcaupper.cafe/absences" class="cta-secondary">View Today's Absences</a>
+  </div>
+
+  <hr />
+
+  <p class="section-label">Two ways to end up in Upper Cafe</p>
+
+  <div class="scenario-block">
+    <h3>Your study hall is already scheduled there.</h3>
+    <p>Walk in, open the web app, pick your period, type your name. Done. You're on the roster.</p>
+  </div>
+
+  <div class="scenario-block">
+    <h3>Your class teacher is absent.</h3>
+    <p>Select your period, find your teacher on the daily absence list, and check in. The admin desk updates live so the monitor knows exactly who's there and why.</p>
+  </div>
+
+  <hr />
+
+  <p class="section-label">What's here</p>
+
+  <ul class="platform-list">
+    <li>
+      <a href="https://app.bcaupper.cafe" class="p-name">Web App — app.bcaupper.cafe</a>
+      <span class="p-desc">Student check-in, absence board, admin roster</span>
+    </li>
+    <li>
+      <a href="https://github.com/bca-upper-cafe/" target="_blank" rel="noopener" class="p-name">GitHub — bca-upper-cafe</a>
+      <span class="p-desc">All source code, open</span>
+    </li>
+    <li>
+      <span class="p-name" style="cursor:default;">Mobile App — iOS & Android</span>
+      <span class="p-desc">View absences on your phone — coming soon</span>
+    </li>
+  </ul>
 </Layout>
