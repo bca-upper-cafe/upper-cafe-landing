@@ -1,48 +1,202 @@
 ---
-import Layout from '../../layouts/Layout.astro';
-const year = new Date().getFullYear();
-const copyright = year === 2026 ? '© 2026 Kabir Sekhon' : `© 2026-${year} Kabir Sekhon`;
+const currentYear = new Date().getFullYear();
+const yearDisplay = currentYear === 2026 ? "2026" : `2026 - ${currentYear}`;
 ---
-<Layout title="Privacy Policy — Upper Cafe">
-  <style>
-    h1 { font-size: 1.8rem; font-weight: normal; margin-bottom: 0.4rem; }
-    .subtitle { font-size: 0.82rem; color: #888; font-family: -apple-system, BlinkMacSystemFont, sans-serif; margin-bottom: 2.5rem; }
-    h2 { font-size: 1.05rem; font-family: -apple-system, BlinkMacSystemFont, sans-serif; font-weight: 700; margin: 2rem 0 0.5rem; }
-    p { font-size: 0.9rem; color: #444; margin-bottom: 1rem; }
-    ul { font-size: 0.9rem; color: #444; margin: 0 0 1rem 1.5rem; }
-    li { margin-bottom: 0.3rem; }
-    a { color: #8B6914; }
-  </style>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>Privacy Policy &middot; bcaupper.cafe</title>
+    <style>
+        :root {
+            --bg: #ffffff;
+            --text: #111111;
+            --muted: #666666;
+            --border: #eaeaea;
+        }
 
-  <h1>Privacy Policy</h1>
-  <p class="subtitle">Last updated September 2026 &nbsp;·&nbsp; {copyright}</p>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
 
-  <p>We take your privacy seriously. This policy explains what we collect, why, and what we do with it.</p>
+        body {
+            background-color: var(--bg);
+            color: var(--text);
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.6;
+            padding: 40px 20px;
+            max-width: 580px;
+            margin: 0 auto;
+        }
 
-  <h2>What we collect</h2>
-  <p>When you check in to Upper Cafe, we store:</p>
-  <ul>
-    <li>Your name</li>
-    <li>Your BCA email address (optional)</li>
-    <li>Your student ID number (optional)</li>
-    <li>Your academy and grade</li>
-    <li>The period you checked in for</li>
-    <li>Your check-in reason (scheduled study hall or teacher absence)</li>
-    <li>The time you checked in and out</li>
-  </ul>
+        header {
+            margin-bottom: 32px;
+        }
 
-  <h2>What we don't collect</h2>
-  <p>We do not collect passwords, financial information, device data, location data, or any information beyond what you type into the check-in form.</p>
+        h1 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+            margin-bottom: 8px;
+        }
 
-  <h2>How we use it</h2>
-  <p>The data is used exclusively by Upper Cafe monitors and BCA staff to maintain an accurate attendance roster. It is not shared with third parties, used for advertising, or processed for any purpose beyond attendance tracking.</p>
+        p {
+            color: var(--muted);
+            margin-bottom: 20px;
+            font-size: 0.95rem;
+        }
 
-  <h2>Storage</h2>
-  <p>Data is stored in-memory on the API server and resets periodically. We do not maintain permanent records beyond the current school day.</p>
+        hr {
+            border: none;
+            border-top: 1px solid var(--border);
+            margin: 28px 0;
+        }
 
-  <h2>Your rights</h2>
-  <p>If you want your check-in record removed, email <a href="mailto:kabsek30@bergen.org">kabsek30@bergen.org</a> and we'll take care of it.</p>
+        .section-title {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--muted);
+            margin-bottom: 12px;
+            font-weight: 600;
+        }
 
-  <h2>Contact</h2>
-  <p>Questions about privacy? <a href="mailto:kabsek30@bergen.org">kabsek30@bergen.org</a></p>
-</Layout>
+        ul {
+            list-style: none;
+            margin-bottom: 20px;
+        }
+
+        li {
+            margin-bottom: 8px;
+            font-size: 0.95rem;
+            color: var(--muted);
+        }
+
+        li::before {
+            content: "• ";
+            color: var(--muted);
+        }
+
+        a {
+            color: var(--text);
+            text-decoration: underline;
+            text-underline-offset: 3px;
+            text-decoration-color: #d1d1d1;
+        }
+
+        a:hover {
+            text-decoration-color: var(--text);
+        }
+
+        .back-nav {
+            margin-bottom: 24px;
+            font-size: 0.85rem;
+        }
+
+        footer {
+            margin-top: 40px;
+            font-size: 0.85rem;
+            color: var(--muted);
+        }
+
+        footer nav {
+            margin-top: 12px;
+            display: flex;
+            gap: 12px;
+        }
+
+        footer nav a {
+            color: var(--muted);
+            font-size: 0.85rem;
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="back-nav">
+        <a href="/">&larr; Back to bcaupper.cafe</a>
+    </nav>
+
+    <header>
+        <h1>Privacy Policy</h1>
+        <p>Last updated September 2026</p>
+    </header>
+
+    <main>
+        <div class="section-title">1. Scope & Intended Audience</div>
+        <p>
+            bcaupper.cafe, its web application, and associated mobile applications (collectively, the "Platform") are developed by Kabir Sekhon as an independent student-led software utility. The Platform is exclusively designed and intended for use by current students and staff of Bergen County Academies ("BCA") in Hackensack, New Jersey. It is not intended for the general public or commercial exploitation.
+        </p>
+
+        <hr />
+
+        <div class="section-title">2. Information Collected</div>
+        <p>
+            The Platform collects only the minimal data strictly required to facilitate digital check-ins and attendance monitoring:
+        </p>
+        <ul>
+            <li>Full Name</li>
+            <li>BCA student or staff email address (@bergen.org)</li>
+            <li>Student ID number (optional)</li>
+            <li>Academy and grade level</li>
+            <li>Assigned period, study hall schedule, or absent teacher reference</li>
+            <li>Check-in timestamp and session status</li>
+        </ul>
+        <p>
+            The Platform does not collect sensitive financial details, location coordinates, biometrics, hardware fingerprinting, or browsing telemetry across unrelated web domains.
+        </p>
+
+        <hr />
+
+        <div class="section-title">3. Data Utilization & Retention</div>
+        <p>
+            Information collected is strictly utilized to reflect real-time attendance rosters for Upper Cafe monitors and authorized school administrators. Records are maintained temporarily for operational day-to-day reconciliation and are purged or overwritten periodically. We do not sell, license, rent, monetize, or disclose student or staff data to third-party advertisers or data brokers.
+        </p>
+
+        <hr />
+
+        <div class="section-title">4. Third-Party Hosting & Distribution Disclaimer</div>
+        <p>
+            The mobile applications distributed through mobile app stores (including Apple App Store and Google Play Store) may be hosted, signed, or published under the developer organization entity <strong>SAVERA CONTINENTAL LIMITED</strong> solely for technical submission, compliance, and distribution purposes.
+        </p>
+        <p>
+            SAVERA CONTINENTAL LIMITED functions strictly as an administrative distribution vehicle and assumes absolutely no ownership, control, data-processing liability, supervisory responsibility, or operational accountability for any content, user submissions, database records, errors, data security events, or services rendered by the Platform.
+        </p>
+
+        <hr />
+
+        <div class="section-title">5. Total Limitation of Liability</div>
+        <p>
+            To the maximum extent permitted by applicable law, neither Kabir Sekhon, SAVERA CONTINENTAL LIMITED, nor any affiliated contributors shall be held liable under any legal theory (contract, tort, negligence, strict liability, or otherwise) for any direct, indirect, incidental, punitive, special, or consequential damages resulting from the collection, processing, storage, loss, breach, deletion, or unintended disclosure of data. You transmit and store records on this Platform at your sole discretion and risk.
+        </p>
+
+        <hr />
+
+        <div class="section-title">6. Inquiries & Data Erasure</div>
+        <p>
+            If you wish to request verification or manual removal of your check-in records, contact Kabir Sekhon directly at <a href="mailto:kabsek30@bergen.org">kabsek30@bergen.org</a>.
+        </p>
+    </main>
+
+    <hr />
+
+    <footer>
+        <div>Built and maintained by Kabir Sekhon (ATCS '30).</div>
+        <div>&copy; {yearDisplay} Kabir Sekhon. All rights reserved.</div>
+
+        <nav>
+            <a href="/terms">Terms of Service</a>
+            <span>&middot;</span>
+            <a href="/privacy">Privacy Policy</a>
+            <span>&middot;</span>
+            <a href="https://github.com/bca-upper-cafe/" target="_blank" rel="noopener noreferrer">GitHub</a>
+        </nav>
+    </footer>
+
+</body>
+</html>

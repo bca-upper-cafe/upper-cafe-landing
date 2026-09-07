@@ -1,173 +1,161 @@
 ---
-import Layout from '../layouts/Layout.astro';
+const currentYear = new Date().getFullYear();
+const yearDisplay = currentYear === 2026 ? "2026" : `2026 - ${currentYear}`;
 ---
-<Layout title="Upper Cafe — Bergen County Academies">
-  <style>
-    h1 {
-      font-size: clamp(2rem, 5vw, 2.8rem);
-      font-weight: normal;
-      line-height: 1.25;
-      letter-spacing: -0.02em;
-      margin-bottom: 1.25rem;
-    }
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>bcaupper.cafe</title>
+    <style>
+        :root {
+            --bg: #ffffff;
+            --text: #111111;
+            --muted: #666666;
+            --border: #eaeaea;
+        }
 
-    h1 em {
-      font-style: italic;
-      color: #8B6914;
-    }
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
 
-    .intro {
-      font-size: 1.05rem;
-      color: #444;
-      max-width: 520px;
-      margin-bottom: 2.5rem;
-    }
+        body {
+            background-color: var(--bg);
+            color: var(--text);
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.6;
+            padding: 40px 20px;
+            max-width: 580px;
+            margin: 0 auto;
+        }
 
-    .cta-row {
-      display: flex;
-      gap: 1rem;
-      flex-wrap: wrap;
-      margin-bottom: 3.5rem;
-    }
+        header {
+            margin-bottom: 32px;
+        }
 
-    .cta-primary {
-      display: inline-block;
-      background: #1a1a1a;
-      color: #FAFAF7;
-      text-decoration: none;
-      padding: 0.55rem 1.25rem;
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-      font-size: 0.85rem;
-      font-weight: 600;
-      border-radius: 4px;
-      letter-spacing: 0.01em;
-    }
-    .cta-primary:hover { background: #333; color: #FAFAF7; }
+        h1 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+            margin-bottom: 8px;
+        }
 
-    .cta-secondary {
-      display: inline-block;
-      color: #555;
-      text-decoration: none;
-      padding: 0.55rem 1.25rem;
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-      font-size: 0.85rem;
-      font-weight: 500;
-      border: 1px solid #ccc;
-      border-radius: 4px;
-      background: #fff;
-    }
-    .cta-secondary:hover { border-color: #999; color: #1a1a1a; }
+        p {
+            color: var(--muted);
+            margin-bottom: 24px;
+            font-size: 0.95rem;
+        }
 
-    hr {
-      border: none;
-      border-top: 1px solid #e0ddd5;
-      margin: 2.5rem 0;
-    }
+        hr {
+            border: none;
+            border-top: 1px solid var(--border);
+            margin: 28px 0;
+        }
 
-    .section-label {
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-      font-size: 0.7rem;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: #999;
-      margin-bottom: 1rem;
-    }
+        .section-title {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--muted);
+            margin-bottom: 12px;
+            font-weight: 600;
+        }
 
-    .scenario-block {
-      margin-bottom: 1.5rem;
-    }
+        ul {
+            list-style: none;
+            margin-bottom: 24px;
+        }
 
-    .scenario-block h3 {
-      font-size: 1rem;
-      font-weight: 700;
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-      margin-bottom: 0.3rem;
-    }
+        li {
+            margin-bottom: 10px;
+            font-size: 0.95rem;
+        }
 
-    .scenario-block p {
-      font-size: 0.9rem;
-      color: #555;
-      max-width: 480px;
-    }
+        a {
+            color: var(--text);
+            text-decoration: underline;
+            text-underline-offset: 3px;
+            text-decoration-color: #d1d1d1;
+        }
 
-    .platform-list {
-      list-style: none;
-      margin-top: 0.5rem;
-    }
+        a:hover {
+            text-decoration-color: var(--text);
+        }
 
-    .platform-list li {
-      padding: 0.85rem 0;
-      border-bottom: 1px solid #e8e5de;
-      display: flex;
-      justify-content: space-between;
-      align-items: baseline;
-      gap: 1rem;
-    }
+        .muted-text {
+            color: var(--muted);
+        }
 
-    .platform-list li:last-child { border-bottom: none; }
+        footer {
+            margin-top: 40px;
+            font-size: 0.85rem;
+            color: var(--muted);
+        }
 
-    .platform-list .p-name {
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-      font-size: 0.88rem;
-      font-weight: 600;
-      color: #1a1a1a;
-      text-decoration: none;
-    }
+        footer nav {
+            margin-top: 12px;
+            display: flex;
+            gap: 12px;
+        }
 
-    .platform-list .p-name:hover { text-decoration: underline; color: #8B6914; }
+        footer nav a {
+            color: var(--muted);
+            font-size: 0.85rem;
+        }
+    </style>
+</head>
+<body>
 
-    .platform-list .p-desc {
-      font-size: 0.82rem;
-      color: #888;
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-      text-align: right;
-      max-width: 280px;
-    }
-  </style>
+    <header>
+        <h1>bcaupper.cafe</h1>
+        <p>the official platform for signing into <i>upper cafe</i> and checking teacher attendance at Bergen County Academies</p>
+    </header>
 
-  <h1>Study hall check-in for <em>BCA</em> students, finally done right.</h1>
+    <main>
+        <div class="section-title">Access Platforms</div>
+        <ul>
+            <li>
+                <strong>Web App:</strong> <a href="https://app.bcaupper.cafe/">Open in browser &rarr;</a>
+            </li>
+            <li>
+                <strong>iOS App:</strong> <a href="#AppStoreRedirect">Download on the App Store &rarr;</a>
+            </li>
+            <li>
+                <strong>Android App:</strong> <a href="#PlayStoreRedirect">Download on the Play Store &rarr;</a>
+            </li>
+        </ul>
 
-  <p class="intro">
-    Upper Cafe has always run on paper and a Google Doc that nobody can find.
-    This fixes that — students check in on a laptop, admins see who's there in real time.
-    No clipboards. No hunting through spreadsheets.
-  </p>
+        <hr />
 
-  <div class="cta-row">
-    <a href="https://app.bcaupper.cafe" class="cta-primary">Check In Now</a>
-    <a href="https://app.bcaupper.cafe/absences" class="cta-secondary">View Today's Absences</a>
-  </div>
+        <div class="section-title">About</div>
+        <p>
+            bcaupper.cafe replaces paper and a Google Docs and  with a direct system for <i>upper cafe</i> sign-ins and teacher attendence tracking
+        </p>
 
-  <hr />
+        <ul style="margin-bottom: 0;">
+            <li><a href="https://app.bcaupper.cafe/">Sign-in To Upper Cafe &rarr;</a></li>
+        </ul>
+    </main>
 
-  <p class="section-label">Two ways to end up in Upper Cafe</p>
+    <hr />
 
-  <div class="scenario-block">
-    <h3>Your study hall is already scheduled there.</h3>
-    <p>Walk in, open the web app, pick your period, type your name. Done. You're on the roster.</p>
-  </div>
+    <footer>
+        <div>Built and maintained by Kabir Sekhon (ATCS '30).</div>
+        <div>&copy; {yearDisplay} Kabir Sekhon. All rights reserved.</div>
 
-  <div class="scenario-block">
-    <h3>Your class teacher is absent.</h3>
-    <p>Select your period, find your teacher on the daily absence list, and check in. The admin desk updates live so the monitor knows exactly who's there and why.</p>
-  </div>
+        <nav>
+            <a href="/terms">Terms of Service</a>
+            <span>&middot;</span>
+            <a href="/privacy">Privacy Policy</a>
+            <span>&middot;</span>
+            <a href="https://github.com/bca-upper-cafe/" target="_blank" rel="noopener noreferrer">GitHub</a>
+        </nav>
+    </footer>
 
-  <hr />
-
-  <p class="section-label">What's here</p>
-
-  <ul class="platform-list">
-    <li>
-      <a href="https://app.bcaupper.cafe" class="p-name">Web App — app.bcaupper.cafe</a>
-      <span class="p-desc">Student check-in, absence board, admin roster</span>
-    </li>
-    <li>
-      <a href="https://github.com/bca-upper-cafe/" target="_blank" rel="noopener" class="p-name">GitHub — bca-upper-cafe</a>
-      <span class="p-desc">All source code, open</span>
-    </li>
-    <li>
-      <span class="p-name" style="cursor:default;">Mobile App — iOS & Android</span>
-      <span class="p-desc">View absences on your phone — coming soon</span>
-    </li>
-  </ul>
-</Layout>
+</body>
+</html>
